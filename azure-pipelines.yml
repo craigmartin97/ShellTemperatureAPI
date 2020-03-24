@@ -10,6 +10,7 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
+  buildConfiguration: 'Release'
 
 stages:
 - stage: Build
@@ -21,9 +22,12 @@ stages:
       vmImage: 'ubuntu-latest'
     steps:
     - task: Docker@2
-      displayName: Build an image
+      displayName: Build an image and push to container registry for api
       inputs:
-        command: build
+        command: buildAndPush
+        repository: shelltemperatureapi
         dockerfile: '$(Build.SourcesDirectory)/ShellTemperatureAPI/Dockerfile'
+        containerRegistry: ShellTemperatureAPI
         tags: |
           $(tag)
+          latest
