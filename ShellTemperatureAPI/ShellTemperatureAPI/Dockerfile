@@ -8,8 +8,8 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
 WORKDIR /src
 COPY ["ShellTemperatureAPI.csproj", "ShellTemperatureAPI/"]
-COPY ["../ShellTemperature.Repository/ShellTemperature.Repository.csproj", "../ShellTemperature.Repository/"]
-COPY ["../ShellTemperature.Data/ShellTemperature.Data.csproj", "../ShellTemperature.Data/"]
+COPY ["ShellTemperature.Repository/ShellTemperature.Repository.csproj", "ShellTemperature.Repository/"]
+COPY ["ShellTemperature.Data/ShellTemperature.Data.csproj", "ShellTemperature.Data/"]
 RUN dotnet restore "ShellTemperatureAPI/ShellTemperatureAPI.csproj"
 COPY . .
 WORKDIR "/src/ShellTemperatureAPI"
