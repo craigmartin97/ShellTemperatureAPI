@@ -25,10 +25,20 @@ namespace ShellTemperatureAPI.Controllers
 
         #region Create
         [HttpPost]
-        public async Task<IActionResult> Create(ShellTemp shellTemp)
+        public async Task<IActionResult> Create(int temp)
         {
             try
             {
+                ShellTemp shellTemp = new ShellTemp()
+                {
+                    Temperature = temp,
+                    RecordedDateTime = DateTime.Now,
+                    Device = new DeviceInfo()
+                    {
+                        DeviceAddress = "1234",
+                        DeviceName = "5678"
+                    }
+                };
                 bool result = _shellTempRepository.Create(shellTemp);
 
                 if (!result)
