@@ -1,7 +1,9 @@
-﻿namespace ShellTemperature.Repository.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace ShellTemperature.Repository.Interfaces
 {
     public interface IRepository<T>
     {
-        bool Create(T model);
+        Task<bool> Create(T model);
     }
 }

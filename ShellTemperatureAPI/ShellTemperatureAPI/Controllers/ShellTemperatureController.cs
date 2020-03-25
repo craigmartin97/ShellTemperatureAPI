@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShellTemperature.Data;
+using ShellTemperature.Models;
 using ShellTemperature.Repository.Interfaces;
 using System;
 using System.Threading.Tasks;
@@ -25,21 +26,15 @@ namespace ShellTemperatureAPI.Controllers
 
         #region Create
         [HttpPost]
-        public async Task<IActionResult> Create(int temp)
+        public async Task<IActionResult> Create(ShellTemperatureRecord record)
         {
             try
             {
-                ShellTemp shellTemp = new ShellTemp()
-                {
-                    Temperature = temp,
-                    RecordedDateTime = DateTime.Now,
-                    Device = new DeviceInfo()
-                    {
-                        DeviceAddress = "1234",
-                        DeviceName = "5678"
-                    }
-                };
-                bool result = _shellTempRepository.Create(shellTemp);
+                if (!record.RecordedDateTime.HasValue)
+                    record.RecordedDateTime = DateTime.Now;
+
+                ShellTemp shellTemp = new ShellTemp(record.Id, record.Temperature, (DateTime)record.RecordedDateTime, record.Latitude, record.Longitude, record.DeviceInfo);
+                bool result = await _shellTempRepository.Create(shellTemp);
 
                 if (!result)
                     return BadRequest();

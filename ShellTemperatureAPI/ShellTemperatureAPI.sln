@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellTemperatureAPI", "ShellTemperatureAPI\ShellTemperatureAPI.csproj", "{C6F39B30-C19D-4A50-A294-3CD8727591C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShellTemperatureAPI", "ShellTemperatureAPI\ShellTemperatureAPI.csproj", "{C6F39B30-C19D-4A50-A294-3CD8727591C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellTemperature.Data", "ShellTemperature.Data\ShellTemperature.Data.csproj", "{74AA0202-FF6F-413C-849C-06C3920CCBE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShellTemperature.Data", "ShellTemperature.Data\ShellTemperature.Data.csproj", "{74AA0202-FF6F-413C-849C-06C3920CCBE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellTemperature.Repository", "ShellTemperature.Repository\ShellTemperature.Repository.csproj", "{32248569-E7E9-4F45-AB6C-8E7F41E49684}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShellTemperature.Repository", "ShellTemperature.Repository\ShellTemperature.Repository.csproj", "{32248569-E7E9-4F45-AB6C-8E7F41E49684}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellTemperature.Models", "ShellTemperature.Models\ShellTemperature.Models.csproj", "{1123BE35-1B61-44DF-A0EF-A2524F715CE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{32248569-E7E9-4F45-AB6C-8E7F41E49684}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32248569-E7E9-4F45-AB6C-8E7F41E49684}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32248569-E7E9-4F45-AB6C-8E7F41E49684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1123BE35-1B61-44DF-A0EF-A2524F715CE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1123BE35-1B61-44DF-A0EF-A2524F715CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1123BE35-1B61-44DF-A0EF-A2524F715CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1123BE35-1B61-44DF-A0EF-A2524F715CE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
