@@ -12,7 +12,9 @@ namespace ShellTemperatureAPI.Controllers
     public class ShellTemperatureController : ControllerBase
     {
         #region Fields
-
+        /// <summary>
+        /// Shell temperature repository to engage with the shell temperature table of the database
+        /// </summary>
         private readonly IRepository<ShellTemp> _shellTempRepository;
         #endregion
 
@@ -25,6 +27,11 @@ namespace ShellTemperatureAPI.Controllers
         #endregion
 
         #region Create
+        /// <summary>
+        /// Create a new shell temperature record in the database
+        /// </summary>
+        /// <param name="record">The new record to create</param>
+        /// <returns>Returns a OK if the request was a success</returns>
         [HttpPost]
         public async Task<IActionResult> Create(ShellTemperatureRecord record)
         {
@@ -45,6 +52,23 @@ namespace ShellTemperatureAPI.Controllers
             {
                 return BadRequest();
             }
+        }
+        #endregion
+
+        #region Get
+        /// <summary>
+        /// Get all of the shell temperature readings from the database
+        /// </summary>
+        /// <returns>Returns a collection of shell temperature readings from the database</returns>
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            ShellTemp[] allDataReadings = await _shellTempRepository.GetAll();
+
+            if (allDataReadings != null && allDataReadings.Length > 0)
+                return Ok(allDataReadings);
+
+            return BadRequest("No data could be found");
         }
         #endregion
     }

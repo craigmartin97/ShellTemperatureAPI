@@ -5,5 +5,7 @@ namespace ShellTemperature.Repository.Interfaces
     public interface IRepository<T>
     {
         Task<bool> Create(T model);
+
+        Task<T[]> GetAll();
     }
 }

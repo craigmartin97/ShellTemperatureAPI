@@ -35,6 +35,16 @@ namespace ShellTemperature.Repository
             await Context.SaveChangesAsync();
             return true;
         }
+
+
+        /// <summary>
+        /// Get all of the shell temperature records from the database
+        /// </summary>
+        /// <returns></returns>
+        public async Task<ShellTemp[]> GetAll()
+            => await Context.ShellTemperatures
+                .Include(dev => dev.Device)
+                .ToArrayAsync();
         #endregion
     }
 }
