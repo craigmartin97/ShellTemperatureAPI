@@ -89,6 +89,15 @@ namespace ShellTemperatureAPI.Controllers
             return Ok(shellTemp);
         }
 
+        /// <summary>
+        /// Get shell temperature readings between two dates.
+        /// Additional information about the device can be supplied
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="deviceName"></param>
+        /// <param name="deviceAddress"></param>
+        /// <returns></returns>
         [HttpGet("api/[controller]/GetBetweenDates")]
         public async Task<IActionResult> Get([FromQuery] DateTime start, [FromQuery] DateTime end, [FromQuery] string deviceName = null, [FromQuery] string deviceAddress = null)
         {
