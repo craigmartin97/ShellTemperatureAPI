@@ -70,9 +70,9 @@ namespace ShellTemperatureAPI.Controllers
 
             if (dataReadings.Length == 0)
                 return BadRequest("No data could be found");
-            
-            
-            return Ok(new { shellTemperatures = dataReadings } );
+
+
+            return Ok(dataReadings);
         }
 
         /// <summary>
