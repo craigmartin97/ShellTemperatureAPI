@@ -67,6 +67,7 @@ namespace ShellTemperatureAPI.Controllers
         {
             IEnumerable<ShellTemp> allDataReadings = await _shellTempRepository.GetAll();
             ShellTemp[] dataReadings = allDataReadings as ShellTemp[] ?? allDataReadings.ToArray();
+            dataReadings = dataReadings.OrderBy(date => date.RecordedDateTime).ToArray();
 
             if (dataReadings.Length == 0)
                 return BadRequest("No data could be found");
@@ -104,7 +105,7 @@ namespace ShellTemperatureAPI.Controllers
         {
             IEnumerable<ShellTemp> shellTemps = await _shellTempRepository.GetShellTemperatureData(start, end, deviceName, deviceAddress);
             ShellTemp[] temps = shellTemps as ShellTemp[] ?? shellTemps.ToArray();
-
+            temps = temps.OrderBy(date => date.RecordedDateTime).ToArray();
             return Ok(temps);
         }
         #endregion
